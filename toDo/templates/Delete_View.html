@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="header-bar">
+        <a href="{% url 'home' %}">&#8592 back</a>
+    </div>
+
+    <form action="{% url 'Delete_View' task.id %}" method="post">
+    {% csrf_token %}
+    <div class="page">
+        <div><label>{{form.title.label}}</label>{{form.title}}</div>
+        <div><label>{{form.discription.label}}</label>{{form.discription}}</div>
+        <div>
+            Are you sure you want to delete the following task?<br>
+            {{ task.title }}
+        </div>
+        <div>
+        <button class="button" type="submit">Delete</button>
+        <a href="{% url 'home' %}">Cancel</a>
+        </div>
+    </div>
+
+    
+{% endblock content %}

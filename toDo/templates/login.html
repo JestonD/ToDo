@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <h2>Login</h2>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="page">
+    <div><label>{{form.username.label}}</label> {{form.username}}</div>
+    <div><label>{{form.password.label}}</label> {{form.password}}</div>
+    <div><input class="button" type="submit" Value="login"></div>
+    <h5>Already have a account <a href="{% url 'register' %}">Register<a></h5>
+    </div>
+    
+</form>
+
+    
+{% endblock content %}
